@@ -23,17 +23,24 @@ public class GradeAverage {
     //You may assume that first and last are > 0 and < scores.length
     private double mean(int first, int last)
     {
-        //TODO add code here
-        //make this public to test this
-        return 0.0;
+        double total = 0;
+        for( int i = first; i <= last; i++){
+            total = total + scores[i];
+        }
+        double average = total/((last + 1) - first);
+        return average;
     }
 
     // returns true if each successive value in scores is greater than
     // or equal to the previous value.  Otherwise returns false
     private boolean showsImprovement()
     {
-        //TODO add code here
-        return false;
+        for(int i = 0; i< scores.length - 1; i++) {
+            if (scores[i] > scores[i + 1]) {
+                return false;
+            }
+        }
+        return true;
     }
 
     // if the values in the scores array show improvement, returns the
@@ -50,17 +57,17 @@ public class GradeAverage {
         int [] s3 = {20,50,50,80};      // improved, final grade is 65.0
 
         GradeAverage sr1 = new GradeAverage(s1);
-        //System.out.println(sr1.mean());
-        //System.out.println(sr1.showsImprovement());
-        System.out.println(sr1.finalGrade());
+        System.out.println(sr1.mean(1, 4));
+        System.out.println(sr1.showsImprovement());
+        //System.out.println(sr1.finalGrade());
         GradeAverage sr2 = new GradeAverage(s2);
-        //System.out.println(sr2.mean());
-        //System.out.println(sr2.showsImprovement());
-        System.out.println(sr2.finalGrade());
-        //System.out.println(sr3.mean());
-        //System.out.println(sr3.showsImprovement());
+        System.out.println(sr2.mean(1, 3));
+        System.out.println(sr2.showsImprovement());
+        //System.out.println(sr2.finalGrade());
         GradeAverage sr3 = new GradeAverage(s3);
-        System.out.println(sr3.finalGrade());
+        System.out.println(sr3.mean(2,3));
+        System.out.println(sr3.showsImprovement());
+        //System.out.println(sr3.finalGrade());
     }
 
 }
